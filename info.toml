@@ -8,6 +8,13 @@ hint = """
 Wazzap"""
 
 [[exercises]]
+name = "aoc"
+path = "exercises/aoc/aoc2.rs"
+mode = "test"
+hint = """
+Wazzap"""
+
+[[exercises]]
 name = "intro1"
 path = "exercises/intro/intro1.rs"
 mode = "compile"
