@@ -25,6 +25,8 @@ struct Team {
     goals_conceded: u8,
 }
 
+imp
+
 fn build_scores_table(results: String) -> HashMap<String, Team> {
     // The name of the team is the key and its associated struct is the value.
     let mut scores: HashMap<String, Team> = HashMap::new();
@@ -40,6 +42,23 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // will be the number of goals conceded from team_2, and similarly
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.
+        if team_1_score == team_2_score { continue }
+        let team_1_won = team_1_score > team_2_score;
+        if let Some(team) = map.get_mut(&team_1_name) {
+            if team_1_won {
+                *team.goals_scored +=1
+            } else {
+                *team.goals_conceded +=1
+            }
+        }
+        if let Some(team) = map.get_mut(&team_1_name) {
+            if team_1_won {
+                *team.goals_scored +=1
+            } else {
+                *team.goals_conceded +=1
+            }
+        }
+        scores.insert(team_1_score, )
     }
     scores
 }
@@ -52,6 +71,7 @@ mod tests {
         let results = "".to_string()
             + "England,France,4,2\n"
             + "France,Italy,3,1\n"
+            + "France,Italy,1,1\n"
             + "Poland,Spain,2,0\n"
             + "Germany,England,2,1\n";
         results
