@@ -1,9 +1,16 @@
 # INTRO
 
 [[exercises]]
-name = "aoc"
+name = "aoc1"
 path = "exercises/aoc/aoc1.rs"
 mode = "test"
+hint = """
+Wazzap"""
+
+[[exercises]]
+name = "trait"
+path = "exercises/playground/traits1.rs"
+mode = "compile"
 hint = """
 Wazzap"""
 
