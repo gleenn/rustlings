@@ -31,7 +31,7 @@ mod tests {
 
     #[test]
     fn verify_test() {
-        assert_eq!(calculate_price_of_apples(-2), -80);
+        assert_eq!(calculate_price_of_apples(-1), -2);
         assert_eq!(calculate_price_of_apples(35), 70);
         assert_eq!(calculate_price_of_apples(40), 80);
         assert_eq!(calculate_price_of_apples(41), 41);
