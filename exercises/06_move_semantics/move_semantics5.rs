@@ -11,10 +11,11 @@ fn get_char(data: &String) -> char {
 
 // Should take ownership
 // fn string_uppercase(mut data: &String) {
-fn string_uppercase(mut data: String) {
-    data = data.to_uppercase();
+fn string_uppercase(data: &String) -> &String {
+    let upper_data = data.to_uppercase();
 
-    println!("{data}");
+    println!("{upper_data}");
+    data
 }
 
 fn main() {
@@ -24,5 +25,16 @@ fn main() {
     get_char(&data);
 
     // string_uppercase(&data);
-    string_uppercase(data);
+    string_uppercase(&data);
+
+    get_char(&data);
 }
+
+// In Glenn's words, ownership is deciding when memory should be cleaned up.
+// So if you own a value, when the scope you're looking at ends, all the things you own die.
+// So in effect, your program has a chain of functions that pass ownership of data between them.
+// Each function takes ownership of the data, processes it, and then passes ownership to the next function.
+// When the last function in the chain finishes, the data is cleaned up.
+// This ensures that memory is managed efficiently and prevents memory leaks.
+//
+// Man AI stole the show after I wrote "chain of functions".
