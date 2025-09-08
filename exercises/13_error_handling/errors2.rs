@@ -14,6 +14,7 @@
 // There are at least two ways to implement this that are both correct. But one
 // is a lot shorter!
 
+use std::collections::HashMap;
 use std::num::ParseIntError;
 
 fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
@@ -36,6 +37,24 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
 
 fn main() {
     // You can optionally experiment here.
+    let blank_face = HashMap::<String, String>::new();
+    next_face(blank_face);
+}
+
+fn next_face(mut face: HashMap<String, String>) {
+    face.insert("😊".to_string(), "smile".to_string());
+    next_next_face(face);
+}
+
+fn next_next_face(mut face: HashMap<String, String>) {
+    face.insert(":(".to_string(), "sad".to_string());
+    let print_face = print_face(face);
+    println!("{:?}", print_face.get(":(").unwrap());
+}
+
+fn print_face(face: HashMap<String, String>) -> HashMap<String, String> {
+    println!("{:?}", face.get("😊").unwrap());
+    face
 }
 
 #[cfg(test)]
