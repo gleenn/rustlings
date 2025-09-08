@@ -39,6 +39,8 @@ fn main() {
     // You can optionally experiment here.
     let blank_face = HashMap::<String, String>::new();
     next_face(blank_face);
+    // next_face(blank_face.clone());
+    // println!("{:?}", blank_face.get(":(").unwrap());
 }
 
 fn next_face(mut face: HashMap<String, String>) {
