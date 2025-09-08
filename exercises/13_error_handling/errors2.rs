@@ -48,13 +48,12 @@ fn next_face(mut face: HashMap<String, String>) {
 
 fn next_next_face(mut face: HashMap<String, String>) {
     face.insert(":(".to_string(), "sad".to_string());
-    let print_face = print_face(face);
-    println!("{:?}", print_face.get(":(").unwrap());
+    print_face(&face);
+    println!("{:?}", face.get(":(").unwrap());
 }
 
-fn print_face(face: HashMap<String, String>) -> HashMap<String, String> {
-    println!("{:?}", face.get("😊").unwrap());
-    face
+fn print_face(face: &HashMap<String, String>) {
+    println!("{:?}", &face.get("😊").unwrap());
 }
 
 #[cfg(test)]
